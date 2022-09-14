@@ -7,7 +7,48 @@ using System.Threading.Tasks;
 namespace CSh_lab02
 {
     class Program
-    {   
+    {
+        public class ClassRoom
+        {
+            private Pupil[] pupils = new Pupil[4];
+
+            public ClassRoom(params Pupil[] SchoolClass)
+            {
+                for (int i = 0; i < SchoolClass.Length; ++i)
+                {
+                    if (SchoolClass[i] != null)
+                    {
+                        pupils[i] = SchoolClass[i];
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+
+            public void PrintClassInfo()
+            {
+                for (int i = 0; i < pupils.Length; ++i)
+                {
+                    if (pupils[i] != null)
+                    {
+                        Console.WriteLine($"Pupil #{i + 1}");
+                        pupils[i].Study();
+                        pupils[i].Write();
+                        pupils[i].Read();
+                        pupils[i].Relax();
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    Console.WriteLine("\n\n");
+                }
+                Console.WriteLine("######################################");
+            }
+
+        }
         public class Pupil
         {
             public virtual void Study(){}
@@ -86,48 +127,6 @@ namespace CSh_lab02
             {
                 Console.WriteLine("This pupil can chill and relax very very bad");
             }
-        }
-
-        public class ClassRoom
-        {
-            private Pupil[] pupils = new Pupil[4];
-
-            public ClassRoom(params Pupil[] SchoolClass)
-            {
-                for (int i = 0; i < SchoolClass.Length; ++i)
-                {
-                    if (SchoolClass[i] != null)
-                    {
-                        pupils[i] = SchoolClass[i];
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-            }
-
-            public void PrintClassInfo()
-            {
-                for (int i = 0; i < pupils.Length; ++i)
-                {
-                    if (pupils[i] != null)
-                    {
-                        Console.WriteLine($"Pupil #{i + 1}");
-                        pupils[i].Study();
-                        pupils[i].Write();
-                        pupils[i].Read();
-                        pupils[i].Relax();
-                    }
-                    else
-                    {
-                        break;
-                    }
-                    Console.WriteLine("\n\n");
-                }
-                Console.WriteLine("######################################");
-            }
-
         }
         static void Main(string[] args)
         {
