@@ -67,7 +67,7 @@ namespace Ex2
             {
                 base.VehicleInfoPrint();
                 Console.WriteLine($"Порт приписки корабля - {home_port}");
-                Console.WriteLine($"Количество пассажиров самолёта - {passengers_num} чел.");
+                Console.WriteLine($"Количество пассажиров корабля - {passengers_num} чел.");
             }
 
             private string home_port;
